@@ -18,6 +18,9 @@
     let divs = document.getElementsByTagName('div');
     let spans = document.getElementsByClassName("my-span")
     let btn = document.getElementById("btn")
+    btn.addEventListener('click', function(e) {
+        console.log(this) // dom节点
+    }, false)
 </script>
 </body>
 </html>

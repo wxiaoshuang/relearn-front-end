@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            background: green;
+        }
+        body {
+            border: 10px solid red;
+            margin: 10px;
+        }
+        .box-2000 {
+            height: 2000px;
+        }
+        #bodyBox {
+            width:300px;
+        }
+        #my-box {
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            background-color: red;
+            border: 10px solid black;
+
+        }
+        #scroll-h {
+            width: 2000px;
+            height:100px;
+            background: grey;
+        }
+        .x {
+            width: 120px;
+            background: purple;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="box-2000">
+    <div id="bodyBox"></div>
+    <div id="my-box">测试元素的clientWidth, offsetWidth</div>
+    <div id="scroll-h">构造水平滚动条</div>
+    <p>测试scrollWidth和scrollHeight</p>
+    <p class="x">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+    <div>
+        <div></div>
+    </div>
+</div>
+<script>
+    let box = document.querySelector('#my-box')
+    let bodyBox  = document.querySelector('#bodyBox')
+    let info = `box的clientHeight=${box.clientHeight}
+                clientWidth=${box.clientWidth}
+                offsetHeight=${box.offsetHeight}
+                offsetWidth=${box.offsetWidth}`
+    box.innerHTML = info
+    let bodyInfo = `window.innerWidth=${window.innerWidth}
+                    document.body.clientWidth=${document.body.clientWidth}
+                    document.documentElement.clientWidth=${document.documentElement.clientWidth}
+                     window.innerHeight=${window.innerHeight}
+                     document.body.clientHeight=${document.body.clientHeight}
+                      document.documentElement.clientHeight=${document.documentElement.clientHeight}
+                     `
+    bodyBox.innerHTML = bodyInfo
+    // console.log(info)
+</script>
+</body>
+</html>
