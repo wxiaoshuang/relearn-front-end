@@ -37,8 +37,8 @@ console.log(p2 instanceof Person);  //true
    1. 创建一个新对象  
    2. 新对象的原型链接到构造函数的prototype
    3. 将构造函数的作用域赋给新对象（因此this就指向了这个新对象）；  
-   执行构造函数中的代码（为这个新对象添加属性）；  
-   如果构造函数没有返回值或者返回的不是一个对象类型，那么返回这个新对象
+   4. 执行构造函数中的代码（为这个新对象添加属性）；  
+   5. 如果构造函数没有返回值或者返回的不是一个对象类型，那么返回这个新对象
 
 我们来模拟实现一个new
 
@@ -102,7 +102,60 @@ delete p1.name
 对于包含引用类型值的属性来说，修改一个实例的这个属性值可能会影响到所有实例的这个属性值
 ## 4 组合模式
 　组合使用构造函数模式和原型模式
+
+创建自定义类型的最常见方式，
+就是组合使用构造函数模式与原型模式。
+构造函数模式用于定义实例属性，
+而原型模式用于定义方法和共享的属性。结果，
+每个实例都会有自己的一份实例属性的副本，
+但同时又共享着对方法的引用，最大限度地节省了内存。另外
+，这种混成模式还支持向构造函数传递参数；
+可谓是集两种模式之长
+```javascript
+function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = ["Shelby", "Court"];
+}
+Person.prototype = {
+    constructor : Person,
+    sayName : function(){
+        alert(this.name);
+    }
+}
+var person1 = new Person("Nicholas", 29, "Software Engineer");
+var person2 = new Person("Greg", 27, "Doctor");
+person1.friends.push("Van");
+alert(person1.friends);    //"Shelby,Count,Van"
+alert(person2.friends);    //"Shelby,Count"
+alert(person1.friends === person2.friends);    //false
+alert(person1.sayName === person2.sayName);    //true
+```
+组合模式是用来定义引用类型的一种默认模式
 ## 5 动态原型模式
+动态原型模式所有信息都封装在了构造函数中，
+而通过在构造函数中初始化原型（仅在必要的情况下），
+又保持了同时使用构造函数和原型的优点。换句话说，
+可以通过检查某个应该存在的方法是否有效，
+来决定是否需要初始化原型
+```javascript
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+     // 这段代码只会在初次调用构造函数时才会执行。此后，
+     //  原型已经完成初始化，不需要再做什么修改了。不过要记住，
+     //  这里对原型所做的修改，能够立即在所有实例中得到反映。
+     //  因此，这种方法确实可以说非常完美
+    if(typeof this.sayName !== 'function') {
+        Person.prototype.sayName = function() {
+            console.log(this.name)
+        }
+    }
+}
+var friend = Person("Nicholas", 29);
+friend.sayName();  //"Nicholas"
+```
 ## 6 寄生构造函数模式
 这种模式的基本思想是创建一个函数，该函数的作用仅仅是封装创建对象的代码，
 然后再返回新创建的对象；但从表面上看，
@@ -125,3 +178,21 @@ var p2 = new Person('Bob', 20)
 这个模式跟工厂模式其实是一模一样
 缺点：不能区分实例类型，返回的对象与构造函数或者与构造函数的原型属性之间没有关系
 ## 7 稳妥构造函数模式
+所谓稳妥对象，指的是没有公共属性，
+而且其方法也不引用this
+的对象。稳妥对象最适合在一些安全的环境
+```javascript
+function Person(name) {
+    var o = new Object()
+    o.sayName = function() {
+        console.log(name)
+    }
+    return o
+}
+var friend = Person("Nicholas");
+friend.sayName();  //"Nicholas"
+//这样，变量
+//person中保存的是一个稳妥对象，而除了调用
+//sayName()
+//方法外，没有别的方式可以访问其数据成员
+```
