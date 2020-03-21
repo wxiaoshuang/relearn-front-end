@@ -1,7 +1,7 @@
 # 重学前端
 计划目录：
 + 算法
-+ #[js](./js/README.md)
++ # [js](./js/README.md)
     + ## 数据类型与类型转换
     + ## [DOM](./js/DOM.md)
     + ## [事件](./js/事件.md)
