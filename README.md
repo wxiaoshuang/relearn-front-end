@@ -1,6 +1,7 @@
 # 重学前端
 计划目录：
-+ 算法
++ [数据结构和算法](./dataStructure-and-algorithm/README.md)(update continuously)
+    + [图](./dataStructure-and-algorithm/图/图论.md)(1-6章over)
 + # [js](./js/README.md)
     + ## 数据类型与类型转换
     + ## [DOM](./js/DOM.md)
@@ -9,6 +10,9 @@
     + ## [创建对象的7种方式](./js/js创建对象的7种方式.md)
     + ## [实现继承的6种方式](./js/js实现继承的6种方式.md)
     + ## [手写call-apply-bind函数](./js/手写call-apply-bind函数.md)
+    + ## [设计模式](./js/设计模式.md)
+    + ES6系列
+        + ### [手写Promise](./js/手写promise.md)
 + html
 + css
 + vue
