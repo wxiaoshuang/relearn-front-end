@@ -1,4 +1,5 @@
 /**/node_modules/
+/**/dist/
 .idea/
 # java项目的编译代码
 /**/out/

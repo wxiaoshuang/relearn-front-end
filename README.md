@@ -18,6 +18,8 @@
 + vue
 + react
 + webpack
++ babel
++ 自动化测试
 + web安全
 + 性能优化与监控
 * # [计算机网络](./computer-network/README.md)
