@@ -1,5 +1,6 @@
 // webpack的配置文件
 const path = require('path')
+const webpack = require('webpack')
 module.exports = {
     // 打包入口
     mode: "production",
@@ -23,5 +24,6 @@ module.exports = {
                 }
             }]
         }]
-    }
+    },
+    plugins: []
 }
