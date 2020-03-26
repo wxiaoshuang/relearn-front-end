@@ -22,7 +22,7 @@ module.exports = {
         // 代码分割
         splitChunks: {
             chunks: 'all', // async(异步导入) initial(同步导入) all(所有同步和异步)三种选项
-            minSize: 30000,
+            minSize: 30000, // 30kb 在压缩之前
             maxSize: 0,
             minChunks: 1,
             maxAsyncRequests: 6,
