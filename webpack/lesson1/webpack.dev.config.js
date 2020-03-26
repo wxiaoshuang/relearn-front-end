@@ -19,6 +19,49 @@ const devConfig = {
             '/api': 'http//localhost:3000/'
         }
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                sideEffects: true, // import的css文件不tree shaking
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // modules: true, // 开启css的模块化
+                            importLoaders: 1 // 用于配置「css-loader 作用于 @import 的资源之前」有多少个 loader
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [require('autoprefixer')]
+                        }
+                    }]
+            },
+            // {
+            //     test: /\.scss$/,
+            // sideEffects: true, // import的scss文件不tree shaking
+            //     use: [
+            //         'style-loader',
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 importLoaders: 2
+            //             }
+            //         },
+            //         {
+            //             loader: 'postcss-loader',
+            //             options: {
+            //                 plugins: [require('autoprefixer')]
+            //             }
+            //         },
+            //         'sass-loader'
+            //     ]
+            // }
+        ]
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ]
