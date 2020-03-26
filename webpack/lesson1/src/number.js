@@ -1,9 +1,8 @@
 
 function number () {
-    var root = document.querySelector('#root')
     var div = document.createElement('div')
     div.setAttribute('id','number')
-    div.innerHTML = '2000';
-    root.appendChild(div)
+    div.innerHTML = '400';
+    document.body.appendChild(div)
 }
 export {number}
