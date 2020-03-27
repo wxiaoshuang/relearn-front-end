@@ -54,7 +54,7 @@ module.exports = {
                     options: {
                         presets: [['@babel/preset-env', {
                             modules: false, // 禁止Babel将ES6编译到CommonJS,否则无法开启tree shaking
-                            useBuiltIns: 'usage' // 只polyfill使用的部分
+                            useBuiltIns: 'usage' // 值是usage只polyfill使用的部分，并且不用入口文件引用@babel/polyfill
                         }]]
                     }
                 }]

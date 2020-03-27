@@ -15,6 +15,7 @@ const devConfig = {
         open: true, // 启动devServer自动打开浏览器
         port: 8080, //开启服务器运行端口
         hot: true, // 开启热更新
+        historyApiFallback:true,
         proxy: {
             '/api': 'http//localhost:3000/'
         }
