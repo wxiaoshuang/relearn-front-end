@@ -132,7 +132,8 @@ alert(person2.friends);    //"Shelby,Count"
 alert(person1.friends === person2.friends);    //false
 alert(person1.sayName === person2.sayName);    //true
 ```
-组合模式是用来定义引用类型的一种默认模式
+**组合模式是用来定义引用类型的一种默认模式**
+
 ## 5 动态原型模式
 动态原型模式所有信息都封装在了构造函数中，
 而通过在构造函数中初始化原型（仅在必要的情况下），
@@ -160,6 +161,7 @@ friend.sayName();  //"Nicholas"
 这种模式的基本思想是创建一个函数，该函数的作用仅仅是封装创建对象的代码，
 然后再返回新创建的对象；但从表面上看，
 这个函数又很像是典型的构造函数
+
 ```javascript
 function Person(name, age) {
     var o = new Object()
@@ -181,6 +183,7 @@ var p2 = new Person('Bob', 20)
 所谓稳妥对象，指的是没有公共属性，
 而且其方法也不引用this
 的对象。稳妥对象最适合在一些安全的环境
+
 ```javascript
 function Person(name) {
     var o = new Object()

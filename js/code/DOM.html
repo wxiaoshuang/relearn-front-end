@@ -6,55 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        #box {
-            width: 200px;
-            height: 200px;
-            padding: 10px;
-            background: yellow;
-        }
-    </style>
 </head>
 <body>
-<div>
-    <span class="my-span">第一个span</span>
-    <span class="my-span">第二个span</span>
-</div>
-<div id="box"><button id="btn">鼠标点击</button></div>
+<div id="box">hello<!--注释节点--></div>
 <div></div>
 <script>
-    let divs = document.getElementsByTagName('div');
-    let spans = document.getElementsByClassName("my-span")
-    let btn = document.getElementById("btn")
-    let box = document.getElementById('box')
-    console.log('addEventListener')
-
-    if(window.addEventListener) {
-        console.log('addEventListener')
-    } else {
-        console.log('attachEvent')
-    }
-    btn.addEventListener('click', function(e) {
-        console.log(this === btn) // true
-        console.log(e)
-    }, false)
-    box.addEventListener('click', function(e) {
-        console.log('box', this)
-        console.log(this === box) // true
-        console.log(e)
-    }, false)
-
-    // btn.attachEvent('onclick', function(e) {
-    //     console.log(this === btn) // true
-    //     console.log(e)
-    // }, false)
-    // box.attachEvent('onclick', function(e) {
-    //     console.log('box')
-    //     console.log(this)
-    //     console.log(this === box) // true
-    //     console.log(e)
-    // }, false)
-
+    let elementNode = document.getElementById('box')
+    let children = box.children
+    let childNodes = box.childNodes
+    let textNode = childNodes[0]
+    let commentNode = childNodes.item(1)
 </script>
 </body>
 </html>

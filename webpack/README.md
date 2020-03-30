@@ -1,5 +1,5 @@
 source: 从基础到实战 手把手带你掌握新版Webpack4.0
-进度：
+进度：5
 # webpack 4
 ## webpack究竟是什么?
 webpack是一个模块打包器，支持commonjs, ES6 module, AMD, CMD等多种模块

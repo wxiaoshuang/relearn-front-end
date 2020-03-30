@@ -35,8 +35,9 @@
     + ### DNS
     + ### http
     + ### [https](./computer-network/https.md)  (ing)                                           
-+ typescript
 + node
++ typescript
++ linux
 + python
 + 操作系统
 + 编译原理
